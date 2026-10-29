@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>महिनाम परिवार | Mahinam Parivar</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css?v=20261030_03">
+</head>
+<body class="bg-[#f4f6f9] text-slate-900">
+
+    <!-- TOP HEADER -->
+    <header class="bg-white border-b-2 border-slate-300 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 py-2.5 sm:py-3.5 flex items-center justify-between gap-3">
+            
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <!-- GLOBAL BACK BUTTON (Visible when not on Home) -->
+                <button id="global-header-back-btn" onclick="window.goBack()" class="hidden btn-elder-outline text-xs sm:text-sm py-1 px-2.5 sm:py-1.5 sm:px-3 font-bold shadow-sm flex items-center gap-1.5 hover:bg-red-50">
+                    <i class="fa-solid fa-arrow-left"></i> <span>Back</span>
+                </button>
+
+                <!-- BRANDING: MARKHANDE JHA VANSH -->
+                <div class="flex items-center gap-2.5 sm:gap-3 cursor-pointer" onclick="window.navigateToSection('home-section')">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#8b1e15] text-white flex items-center justify-center font-bold text-xl sm:text-2xl flex-shrink-0 shadow-sm">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-black text-slate-900 leading-tight">
+                            Mahinam Parivar
+                        </h1>
+                        <p class="text-[11px] sm:text-sm text-slate-600 font-hindi font-medium">
+                            पूज्य मार्कण्डेय झा वंश परंपरा • महिनाम, मिथिला
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DESKTOP / LAPTOP NAVIGATION ONLY (STRICTLY HIDDEN ON MOBILE VIEW, MOBILE USES BOTTOM BAR) -->
+            <nav id="desktop-header-nav" class="desktop-top-nav hidden lg:flex items-center gap-1.5 lg:gap-2" style="display: none;">
+                <button class="portal-nav-btn active-tab text-sm lg:text-base px-3.5 py-1.5 lg:px-4 lg:py-2 whitespace-nowrap" data-target="home-section">
+                    <i class="fa-solid fa-house mr-1 lg:mr-1.5"></i> Home
+                </button>
+                <button class="portal-nav-btn text-sm lg:text-base px-3.5 py-1.5 lg:px-4 lg:py-2 whitespace-nowrap" data-target="roots-section">
+                    <i class="fa-solid fa-sitemap mr-1 lg:mr-1.5"></i> Vansh-Vriksha
+                </button>
+                <button class="portal-nav-btn text-sm lg:text-base px-3.5 py-1.5 lg:px-4 lg:py-2 whitespace-nowrap" data-target="events-section">
+                    <i class="fa-solid fa-calendar mr-1 lg:mr-1.5"></i> Functions
+                </button>
+                <button class="portal-nav-btn text-sm lg:text-base px-3.5 py-1.5 lg:px-4 lg:py-2 whitespace-nowrap" data-target="directory-section">
+                    <i class="fa-solid fa-address-book mr-1 lg:mr-1.5"></i> Sadasya Suchi
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN BODY -->
+    <main class="max-w-5xl mx-auto px-4 py-5 sm:py-7">
+
+        <!-- ========================================================
+             FIRST PAGE: HOMEPAGE WITH EQUAL TREATMENT
+             ======================================================== -->
+        <div id="home-section" class="page-section space-y-6">
+
+            <!-- SEARCH BOX (PLACED AT THE VERY TOP ABOVE PORTAL BANNER) -->
+            <div class="elder-card shadow-sm">
+                <div class="elder-card-header pb-2 mb-2.5">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass text-[#8b1e15]"></i>
+                        <span>Search Family Member</span>
+                    </h3>
+                </div>
+                <div class="space-y-3">
+                    <input type="text" id="quick-search-input" placeholder="Search member name (e.g. Ramshankar, Shivshankar, Krishna, Atharva)..." 
+                           class="w-full px-4 py-3 text-base border-2 border-slate-300 rounded-xl outline-none focus:border-[#8b1e15] shadow-sm">
+                    <div id="quick-search-results" class="space-y-2 max-h-60 overflow-y-auto"></div>
+                </div>
+            </div>
+
+            <!-- ========================================================
+                 WELCOME & PARIVAR DASHBOARD BANNER
+                 ======================================================== -->
+            <div class="elder-card border-l-8 border-l-[#8b1e15]">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                            <span class="peedhi-badge peedhi-1 text-xs">Pujya Markhande Jha Vansh</span>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 border border-slate-300 px-2 py-0.5 rounded-md">Mahinam, Mithila</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
+                            Mahinam Parivar Portal
+                        </h2>
+                        <p class="text-sm sm:text-base text-slate-700 mt-1 leading-relaxed">
+                            Mool Purvaj <strong>Pujya Markhande Jha</strong> ke vansh ka parivar dashboard. Niche diye gaye kisi bhi function par tap karein:
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-2.5 flex-shrink-0">
+                        <button onclick="window.navigateToSection('roots-section')" class="btn-elder-primary text-sm shadow">
+                            <i class="fa-solid fa-sitemap"></i> Open Lineage
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================================
+                 COLLEGE-APP STYLE FUNCTIONS (4 CLEAN CARDS)
+                 ======================================================== -->
+            <div>
+                <div class="flex items-center justify-between mb-3 px-1">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-[#8b1e15]"></i>
+                        <span>Parivar ke Mukhya Functions</span>
+                    </h3>
+                    <span class="text-xs font-semibold text-slate-500">Box par tap karein</span>
+                </div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+
+                    <!-- FUNCTION 1: VANSH-VRIKSHA (FULL LINEAGE) -->
+                    <div onclick="window.navigateToSection('roots-section')" class="portal-feature-card group p-3 sm:p-5">
+                        <div class="flex flex-col sm:flex-row items-start gap-2 sm:gap-3.5 mb-2 sm:mb-3">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-amber-100 text-[#8b1e15] border-2 border-amber-200 flex items-center justify-center text-lg sm:text-xl flex-shrink-0 group-hover:bg-[#8b1e15] group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-sitemap"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="text-[10px] sm:text-xs font-bold text-amber-800 uppercase tracking-wide block">Lineage</span>
+                                <h4 class="text-base sm:text-lg font-black text-slate-900 leading-snug">Vansh-Vriksha</h4>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed hidden sm:block">
+                                    Pujya Markhande Jha evam inke sabhi beton aur santan ka pura vansh-vriksha.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="pt-2 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-[#8b1e15]">
+                            <span>Open</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- FUNCTION 2: FUNCTIONS (EVENTS & PUJAS) -->
+                    <div onclick="window.navigateToSection('events-section')" class="portal-feature-card group p-3 sm:p-5">
+                        <div class="flex flex-col sm:flex-row items-start gap-2 sm:gap-3.5 mb-2 sm:mb-3">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-100 text-emerald-800 border-2 border-emerald-200 flex items-center justify-center text-lg sm:text-xl flex-shrink-0 group-hover:bg-emerald-800 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="text-[10px] sm:text-xs font-bold text-emerald-800 uppercase tracking-wide block">Events</span>
+                                <h4 class="text-base sm:text-lg font-black text-slate-900 leading-snug">Functions</h4>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed hidden sm:block">
+                                    Aane wale parivarik functions, puja, vivah aur kul-milan karyakram ki suchi.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="pt-2 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-emerald-800">
+                            <span>Open</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- FUNCTION 3: SADASYA SUCHI (DIRECTORY) -->
+                    <div onclick="window.navigateToSection('directory-section')" class="portal-feature-card group p-3 sm:p-5">
+                        <div class="flex flex-col sm:flex-row items-start gap-2 sm:gap-3.5 mb-2 sm:mb-3">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-100 text-purple-800 border-2 border-purple-200 flex items-center justify-center text-lg sm:text-xl flex-shrink-0 group-hover:bg-purple-800 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-address-book"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="text-[10px] sm:text-xs font-bold text-purple-800 uppercase tracking-wide block">Directory</span>
+                                <h4 class="text-base sm:text-lg font-black text-slate-900 leading-snug">Sadasya Suchi</h4>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed hidden sm:block">
+                                    Parivar ke sabhi 5 peedhiyon ke sadasyon ki puri suchi, rishte aur vivaran.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="pt-2 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-purple-800">
+                            <span>Open</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- FUNCTION 4: PARIVAR YAADEIN (MEMORIES & SANSKRITI) -->
+                    <div onclick="document.getElementById('memories-modal').classList.remove('hidden')" class="portal-feature-card group p-3 sm:p-5">
+                        <div class="flex flex-col sm:flex-row items-start gap-2 sm:gap-3.5 mb-2 sm:mb-3">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-rose-100 text-rose-800 border-2 border-rose-200 flex items-center justify-center text-lg sm:text-xl flex-shrink-0 group-hover:bg-rose-800 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-images"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <span class="text-[10px] sm:text-xs font-bold text-rose-800 uppercase tracking-wide block">Memories</span>
+                                <h4 class="text-base sm:text-lg font-black text-slate-900 leading-snug">Yaadein</h4>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed hidden sm:block">
+                                    Purvajon ke sanskar, gaon Mahinam ki yaadein aur dharohar.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="pt-2 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-rose-800">
+                            <span>Open</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- UPCOMING FUNCTIONS (NO NOTIFICATIONS) -->
+            <div class="elder-card">
+                <div class="elder-card-header">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-days text-[#8b1e15]"></i>
+                        <span>Upcoming Family Functions</span>
+                    </h3>
+                    <button onclick="window.navigateToSection('events-section')" class="btn-elder-outline text-xs py-1 px-3.5 font-bold">
+                        View All Functions →
+                    </button>
+                </div>
+                <div id="home-events-container" class="grid grid-cols-1 md:grid-cols-2 gap-3.5"></div>
+            </div>
+
+        </div>
+
+
+        <!-- ========================================================
+             DEDICATED FULL PAGE FOR ANY MEMBER
+             Equal treatment for everyone
+             ======================================================== -->
+        <div id="member-view-section" class="page-section hidden">
+            <div id="member-view-container"></div>
+        </div>
+
+
+        <!-- ========================================================
+             FULL VANSH-VRIKSHA VIEW
+             ======================================================== -->
+        <div id="roots-section" class="page-section hidden space-y-6">
+            <div class="elder-card">
+                <div class="elder-card-header">
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-sitemap text-[#8b1e15]"></i>
+                        <span>Pujya Markhande Jha Vansh-Vriksha</span>
+                    </h2>
+                    <button onclick="window.goBack()" class="btn-elder-outline text-sm py-1.5 px-3.5 shadow-sm font-bold flex items-center gap-1.5 hover:bg-red-50">
+                        <i class="fa-solid fa-arrow-left"></i> ← Back
+                    </button>
+                </div>
+                <div id="family-tree-container"></div>
+            </div>
+        </div>
+
+
+        <!-- ========================================================
+             FUNCTIONS & EVENTS (FORMERLY TYOHAR)
+             ======================================================== -->
+        <div id="events-section" class="page-section hidden space-y-6">
+            <div class="elder-card">
+                <div class="elder-card-header">
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-[#8b1e15]"></i>
+                        <span>Family Functions & Events</span>
+                    </h2>
+                    <button onclick="window.goBack()" class="btn-elder-outline text-sm py-1.5 px-3.5 font-bold shadow-sm flex items-center gap-1.5 hover:bg-red-50">
+                        <i class="fa-solid fa-arrow-left"></i> ← Back
+                    </button>
+                </div>
+                <div id="events-calendar-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            </div>
+        </div>
+
+
+        <!-- ========================================================
+             DIRECTORY (ALL MEMBERS)
+             ======================================================== -->
+        <div id="directory-section" class="page-section hidden space-y-6">
+            <div class="elder-card">
+                <div class="elder-card-header">
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-address-book text-[#8b1e15]"></i>
+                        <span>Sadasya Suchi (Directory)</span>
+                    </h2>
+                    <button onclick="window.goBack()" class="btn-elder-outline text-sm py-1.5 px-3.5 font-bold shadow-sm flex items-center gap-1.5 hover:bg-red-50">
+                        <i class="fa-solid fa-arrow-left"></i> ← Back
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 mb-5">
+                    <div class="sm:col-span-8">
+                        <input type="text" id="directory-search" placeholder="Search by name..." class="w-full px-4 py-2.5 text-base border-2 border-slate-300 rounded-xl outline-none">
+                    </div>
+                    <div class="sm:col-span-4">
+                        <select id="directory-gen-filter" class="w-full px-3 py-2.5 text-base border-2 border-slate-300 rounded-xl outline-none font-bold">
+                            <option value="all">All Generations (1 to 5)</option>
+                            <option value="1">Peedhi 1: Markhande Jha</option>
+                            <option value="2">Peedhi 2: 4 Sons & Children</option>
+                            <option value="3">Peedhi 3: Children</option>
+                            <option value="4">Peedhi 4: Grandchildren</option>
+                            <option value="5">Peedhi 5: Atharva Acharya</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="directory-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5"></div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- MOBILE BOTTOM NAVIGATION (SHOWN ON MOBILE/TABLET, HIDDEN ON DESKTOP/LAPTOP) -->
+    <nav id="mobile-bottom-nav" class="elder-nav-bar lg:hidden">
+        <button class="elder-nav-btn active-tab" data-target="home-section">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </button>
+        <button class="elder-nav-btn" data-target="roots-section">
+            <i class="fa-solid fa-sitemap"></i>
+            <span>Vansh-Vriksha</span>
+        </button>
+        <button class="elder-nav-btn" data-target="events-section">
+            <i class="fa-solid fa-calendar"></i>
+            <span>Functions</span>
+        </button>
+        <button class="elder-nav-btn" data-target="directory-section">
+            <i class="fa-solid fa-address-book"></i>
+            <span>Sadasya Suchi</span>
+        </button>
+    </nav>
+
+
+    <!-- MODAL: PARIVAR YAADEIN & KISSE -->
+    <div id="memories-modal" class="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl border-2 border-slate-400 max-w-lg w-full p-6 shadow-2xl relative max-h-[85vh] overflow-y-auto">
+            <button onclick="document.getElementById('memories-modal').classList.add('hidden')" class="absolute top-4 right-4 text-2xl text-slate-500 hover:text-slate-800">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900">Mahinam Parivar Memories</h3>
+                    <p class="text-xs text-slate-600 font-hindi">महिनाम, मिथिला की धरोहर एवं संस्मरण</p>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-sm text-slate-700">
+                <div class="p-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl space-y-1">
+                    <h4 class="font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-landmark text-[#8b1e15]"></i>
+                        <span>Hamara Mool Sthan: Mahinam (Mithila)</span>
+                    </h4>
+                    <p class="leading-relaxed text-xs sm:text-sm text-slate-600">
+                        Hamara parivar Mithila ke pavitra sthan Mahinam se juda hai. Yahan ki sanskriti, sanskar aur prem hamare parivar ki sabse badi dharohar hai.
+                    </p>
+                </div>
+
+                <div class="p-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl space-y-1">
+                    <h4 class="font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-hands-praying text-amber-700"></i>
+                        <span>Pujya Purvajon ka Aashirwad</span>
+                    </h4>
+                    <p class="leading-relaxed text-xs sm:text-sm text-slate-600">
+                        Pujya Markhande Jha ji aur hamare sabhi bujurgon ne parivar ko hamesha ekta aur aapas ke samman ki seekh di. Sabhi beton aur aane wali peedhiyon ka sthan ek samaan aadarneeya hai.
+                    </p>
+                </div>
+
+                <div class="p-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl space-y-1">
+                    <h4 class="font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-om text-emerald-700"></i>
+                        <span>Pavitra Functions aur Parivarik Milan</span>
+                    </h4>
+                    <p class="leading-relaxed text-xs sm:text-sm text-slate-600">
+                        Chhath Puja, Durga Puja aur Kojagari jaise functions par sabhi sadasya aapas mein judte hain aur aashirwad lete hain.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-5 pt-3 border-t border-slate-200 flex justify-end">
+                <button type="button" onclick="document.getElementById('memories-modal').classList.add('hidden')" class="btn-elder-primary text-sm py-2 px-5">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- CLEAN FOOTER -->
+    <footer class="border-t-2 border-slate-300 bg-white py-6 mt-12 text-center text-sm text-slate-600">
+        <p class="font-bold text-base text-slate-900">Mahinam Parivar • पूज्य मार्कण्डेय झा वंश परंपरा</p>
+        <p class="mt-1">Sabhi sadasyon ka samman ek barabar hai.</p>
+    </footer>
+
+    <!-- Application Scripts (Cache Busted) -->
+    <script src="js/data.js?v=20261030_03"></script>
+    <script src="js/tree.js?v=20261030_03"></script>
+    <script src="js/app.js?v=20261030_03"></script>
+</body>
+</html>
