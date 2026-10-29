@@ -1,0 +1,321 @@
+/* ==========================================================================
+   MAHINAM FAMILY PORTAL - ELDER FRIENDLY & ULTRA SIMPLE DESIGN
+   Specially crafted for older generation / senior family members:
+   Large legible fonts, high contrast, clear buttons, zero confusion
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
+
+:root {
+    --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-hindi: 'Tiro Devanagari Hindi', serif;
+
+    /* High contrast, warm traditional dignified colors */
+    --color-maroon: #8b1e15;
+    --color-maroon-dark: #63120b;
+    --color-maroon-light: #fdf2f0;
+    --color-bg-page: #f4f6f9;
+    --color-card-bg: #ffffff;
+    --color-text-main: #0f172a;
+    --color-text-muted: #475569;
+    --color-border: #cbd5e1;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg-page);
+    color: var(--color-text-main);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+    body {
+        padding-bottom: 2rem;
+    }
+}
+
+.font-hindi {
+    font-family: var(--font-hindi);
+}
+
+/* Big readable cards for elders */
+.elder-card {
+    background-color: var(--color-card-bg);
+    border: 2px solid var(--color-border);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* College-App Style Dashboard Feature Tiles */
+.portal-feature-card {
+    background-color: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+}
+
+.portal-feature-card:hover, .portal-feature-card:active {
+    border-color: var(--color-maroon);
+    box-shadow: 0 6px 16px rgba(139, 30, 21, 0.12);
+    transform: translateY(-2px);
+}
+
+@media (min-width: 640px) {
+    .elder-card {
+        padding: 1.75rem;
+    }
+}
+
+.elder-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.85rem;
+    margin-bottom: 1.15rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* Clear, Large Buttons for easy tapping */
+.btn-elder-primary {
+    background-color: var(--color-maroon);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.65rem 1.25rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: background-color 0.15s ease;
+}
+
+.btn-elder-primary:hover, .btn-elder-primary:active {
+    background-color: var(--color-maroon-dark);
+}
+
+.btn-elder-outline {
+    background-color: #ffffff;
+    color: var(--color-maroon);
+    border: 2px solid var(--color-maroon);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.55rem 1.15rem;
+    border-radius: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.15s ease;
+}
+
+.btn-elder-outline:hover, .btn-elder-outline:active {
+    background-color: var(--color-maroon-light);
+}
+
+/* Generation Level Tag Badges - Big and Clear */
+.peedhi-badge {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.peedhi-1 {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1.5px solid #fde68a;
+}
+
+.peedhi-2 {
+    background-color: #ede9fe;
+    color: #5b21b6;
+    border: 1.5px solid #ddd6fe;
+}
+
+.peedhi-3 {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1.5px solid #a7f3d0;
+}
+
+.peedhi-4 {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border: 1.5px solid #bae6fd;
+}
+
+.peedhi-5 {
+    background-color: #ffe4e6;
+    color: #9f1239;
+    border: 1.5px solid #fecdd3;
+}
+
+/* Universal Utility */
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   STRICT MOBILE VS LAPTOP NAVIGATION CONTROL
+   - Mobile & Tablet (< 1024px): Top header nav STRICTLY HIDDEN, bottom bar VISIBLE
+   - Desktop & Laptop (>= 1024px): Top header nav VISIBLE, bottom bar STRICTLY HIDDEN
+   ========================================================================== */
+.desktop-top-nav,
+#desktop-header-nav {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+@media screen and (min-width: 1024px) {
+    .desktop-top-nav,
+    #desktop-header-nav {
+        display: flex !important;
+        visibility: visible !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    .elder-nav-bar,
+    #mobile-bottom-nav {
+        display: none !important;
+        visibility: hidden !important;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .desktop-top-nav,
+    #desktop-header-nav {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    .elder-nav-bar,
+    #mobile-bottom-nav {
+        display: flex !important;
+        visibility: visible !important;
+    }
+}
+
+/* Simple mobile navigation for elderly users */
+.elder-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: #ffffff;
+    border-top: 2px solid #cbd5e1;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.4rem 0.5rem;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.elder-nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 0.65rem;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.elder-nav-btn i {
+    font-size: 1.35rem;
+    margin-bottom: 0.2rem;
+}
+
+.elder-nav-btn.active-tab {
+    color: var(--color-maroon);
+    background-color: var(--color-maroon-light);
+}
+
+/* High Contrast Input Fields */
+input, select, textarea {
+    font-size: 1rem !important;
+    font-family: inherit;
+}
+
+/* Unified Top Navigation Pill Buttons (Mobile & Laptop) */
+.portal-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.45rem 0.85rem;
+    border-radius: 10px;
+    color: #475569;
+    background-color: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.portal-nav-btn:hover {
+    color: var(--color-maroon);
+    background-color: var(--color-maroon-light);
+    border-color: var(--color-maroon);
+}
+
+.portal-nav-btn.active-tab {
+    color: #ffffff !important;
+    background-color: var(--color-maroon) !important;
+    border-color: var(--color-maroon) !important;
+    box-shadow: 0 2px 6px rgba(139, 30, 21, 0.25);
+}
+
+/* Hide scrollbar on mobile horizontal navigation */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
